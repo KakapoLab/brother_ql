@@ -60,6 +60,7 @@ class BrotherQLRaster(object):
         self._pquality = True
         self.page_number = 0
         self.cut_at_end = True
+        self.half_cut = True
         self.dpi_600 = False
         self.two_color_printing = False
         self._compression = False
@@ -182,6 +183,7 @@ class BrotherQLRaster(object):
             return
         self.data += b'\x1B\x69\x4B' # ESC i K
         flags = 0x00
+        flags |= self.half_cut << 2
         flags |= self.cut_at_end << 3
         flags |= self.dpi_600 << 6
         flags |= self.two_color_printing << 0
