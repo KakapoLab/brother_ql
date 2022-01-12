@@ -109,9 +109,7 @@ def convert(qlr, images, label,  **kwargs):
             if dpi_600:
                 im = im.resize((im.size[0]//2, im.size[1]))
             if im.size[0] != dots_printable[0]:
-                hsize = int((dots_printable[0] / im.size[0]) * im.size[1])
-                im = im.resize((dots_printable[0], hsize), Image.ANTIALIAS)
-                logger.warning('Need to resize the image...')
+                raise ValueError("Bad image width: %s. Expecting: %s." % (im.size[0], dots_printable[0]))
             if im.size[0] < device_pixel_width:
                 new_im = Image.new(im.mode, (device_pixel_width, im.size[1]), (255,)*len(im.mode))
                 new_im.paste(im, (device_pixel_width-im.size[0]-right_margin_dots, 0))
