@@ -106,10 +106,11 @@ def convert(qlr, images, label,  **kwargs):
         if label_specs['kind'] in (ENDLESS_LABEL, PTOUCH_ENDLESS_LABEL):
             if rotate not in ('auto', 0):
                 im = im.rotate(rotate, expand=True)
-            if dpi_600:
-                im = im.resize((im.size[0]//2, im.size[1]))
             if im.size[0] != dots_printable[0]:
-                raise ValueError("Bad image width: %s. Expecting: %s." % (im.size[0], dots_printable[0]))
+                if im.size[1] == dots_printable[0]:
+                    im = im.rotate(90, expand=True)
+                else:
+                    raise ValueError("Bad image width: %s. Expecting: %s." % (im.size[0], dots_printable[0]))
             if im.size[0] < device_pixel_width:
                 new_im = Image.new(im.mode, (device_pixel_width, im.size[1]), (255,)*len(im.mode))
                 new_im.paste(im, (device_pixel_width-im.size[0]-right_margin_dots, 0))
