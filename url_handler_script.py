@@ -22,7 +22,7 @@ decodedUrl = urllib.parse.unquote(options['url'])
 urllib.request.urlretrieve(decodedUrl, './thingsToPrint/' + options['name'] + '.png')
 
 
-stream = os.popen('python3 ./cli.py')
+stream = os.popen('python3 ./brother_ql/cli.py')
 output = stream.read()
 print(output)
 
