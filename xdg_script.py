@@ -37,7 +37,7 @@ commandString = 'python3 ./brother_ql/cli.py '
 if platform.system() == 'Darwin' : 
     commandString +=  "-b network -m PT-P900W -p tcp://192.168.86.52 print -c --no-cut -l " + labelSize 
 else :
-    commandString +=  "-b linux_kernel -m PT-P900W  -p /dev/usb/lp1 print -c --no-cut -l " + labelSize 
+    commandString +=  "-b linux_kernel -m PT-P900W  -p /dev/usb/lp0 print -c --no-cut -l " + labelSize 
 
 quantityToPrint = 1 
 if options['quantity'].isnumeric():   
