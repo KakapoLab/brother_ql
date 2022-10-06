@@ -56,4 +56,6 @@ print("executing command "+ commandString)
 stream = os.popen(commandString)
 output = stream.read()
 print(output)
+os.remove(tempFilename)
+
 
