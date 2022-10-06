@@ -26,7 +26,8 @@ if options['labelWidth']:
 	labelSize = 'pt'+options['labelWidth']	
 
 decodedUrl = urllib.parse.unquote(options['url'])
-tempFilename = './thingsToPrint/' + options['name'] + '.png'
+os.mkdir('/tmp/thingsToPrint/')
+tempFilename = '/tmp/thingsToPrint/' + options['name'] + '.png'
 
 print("fetching: "+decodedUrl)
 
