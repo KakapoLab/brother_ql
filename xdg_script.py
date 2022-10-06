@@ -21,6 +21,9 @@ for part in commandParts:
 	print("Key %s has value %s" %(key,value))
 	options[key]=value
 
+labelSize = 'pt36'
+if options['labelWidth']:
+	labelWidth = 'pt'+labelWidth	
 
 decodedUrl = urllib.parse.unquote(options['url'])
 tempFilename = './thingsToPrint/' + options['name'] + '.png'
