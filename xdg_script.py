@@ -23,7 +23,7 @@ for part in commandParts:
 
 labelSize = 'pt36'
 if options['labelWidth']:
-	labelWidth = 'pt'+labelWidth	
+	labelSize = 'pt'+options['labelWidth']	
 
 decodedUrl = urllib.parse.unquote(options['url'])
 tempFilename = './thingsToPrint/' + options['name'] + '.png'
