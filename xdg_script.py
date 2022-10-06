@@ -26,12 +26,17 @@ if options['labelWidth']:
 	labelSize = 'pt'+options['labelWidth']	
 
 decodedUrl = urllib.parse.unquote(options['url'])
-os.mkdir('/tmp/thingsToPrint/')
+
+try:
+	os.mkdir('/tmp/thingsToPrint/')
+except OSError as error:
+    print(error)    
+
 tempFilename = '/tmp/thingsToPrint/' + options['name'] + '.png'
 
 print("fetching: "+decodedUrl)
 
-urllib.request.urlretrieve(decodedUrl, './thingsToPrint/' + options['name'] + '.png')
+urllib.request.urlretrieve(decodedUrl, tempFilename)
 
 commandString = 'python3 ./brother_ql/cli.py '
 
