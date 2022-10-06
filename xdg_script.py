@@ -25,6 +25,8 @@ for part in commandParts:
 decodedUrl = urllib.parse.unquote(options['url'])
 tempFilename = './thingsToPrint/' + options['name'] + '.png'
 
+print("fetching: "+decodedUrl)
+
 urllib.request.urlretrieve(decodedUrl, './thingsToPrint/' + options['name'] + '.png')
 
 commandString = 'python3 ./brother_ql/cli.py '
