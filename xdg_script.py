@@ -38,7 +38,7 @@ print("fetching: "+decodedUrl)
 
 urllib.request.urlretrieve(decodedUrl, tempFilename)
 
-commandString = 'python3 ./brother_ql/cli.py '
+commandString = 'python3 /home/pi/brother_ql/brother_ql/cli.py '
 
 if platform.system() == 'Darwin' : 
     commandString +=  "-b network -m PT-P900W -p tcp://192.168.86.52 print -c --no-cut -l " + labelSize 
